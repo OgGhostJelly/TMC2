@@ -8,3 +8,4 @@ script = ExtResource("1_wsubc")
 cat = ExtResource("1_d6la8")
 
 [node name="Cat" parent="." instance=ExtResource("1_d6la8")]
+position = Vector2(515, 351)

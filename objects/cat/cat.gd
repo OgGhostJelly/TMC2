@@ -1,15 +1,8 @@
-extends CharacterBody2D
-
-
-@export var speed: float = 1000.0
-
-
-func _input(event: InputEvent) -> void:
-	if not event is InputEventMouseMotion: return
-	velocity = global_position.direction_to(get_global_mouse_position()) * speed
+extends RigidBody2D
 
 
 func _physics_process(_delta: float) -> void:
-	move_and_slide()
+	var global_mouse_position: Vector2 = get_global_mouse_position()
+	var direction: Vector2 = global_position.direction_to(global_mouse_position)
 	
-	velocity = Vector2.ZERO
+	apply_force(global_position.distance_to(global_mouse_position) * direction)

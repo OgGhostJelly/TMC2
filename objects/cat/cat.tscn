@@ -1,23 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdbe6xqbo6g02"]
+[gd_scene load_steps=3 format=3 uid="uid://cdbe6xqbo6g02"]
 
 [ext_resource type="Script" path="res://objects/cat/cat.gd" id="1_o683g"]
-[ext_resource type="Script" path="res://components/get_crushed.gd" id="2_7kx4l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rvmsf"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gqoqg"]
-radius = 80.0062
-
-[node name="Cat" type="CharacterBody2D"]
+[node name="Cat" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource("1_o683g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rvmsf")
-
-[node name="GetCrushed" type="Area2D" parent="."]
-script = ExtResource("2_7kx4l")
-max_crush = 10
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GetCrushed"]
-visible = false
-shape = SubResource("CircleShape2D_gqoqg")
