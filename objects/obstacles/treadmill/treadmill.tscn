@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://t76pwel8ukw4"]
+
+[ext_resource type="Script" path="res://objects/obstacles/treadmill/treadmill.gd" id="1_w1053"]
+
+[sub_resource type="Gradient" id="Gradient_pqgk6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rttqr"]
+gradient = SubResource("Gradient_pqgk6")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7qhj"]
+size = Vector2(64, 64)
+
+[node name="Treadmill" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_w1053")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_rttqr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x7qhj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
