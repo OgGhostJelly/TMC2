@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dc81ouopcls2"]
+[gd_scene load_steps=7 format=3 uid="uid://dk5rit54p6xvu"]
 
-[ext_resource type="Script" path="res://components/hitbox.gd" id="1_qhvy3"]
+[ext_resource type="Script" path="res://objects/obstacles/spike/spike.gd" id="1_qhvy3"]
 [ext_resource type="Texture2D" uid="uid://byw6dykvt21uq" path="res://objects/cat/cat.png" id="2_i88qo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bw0to"]
@@ -28,7 +28,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="AngryCat" type="Area2D"]
+[node name="Spike" type="Area2D"]
 position = Vector2(2, 1)
 collision_layer = 0
 collision_mask = 2
