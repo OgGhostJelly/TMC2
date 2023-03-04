@@ -1,11 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgmw3l80ht8yv"]
+[gd_scene load_steps=9 format=3 uid="uid://cgmw3l80ht8yv"]
 
 [ext_resource type="PackedScene" uid="uid://b65bep1mo3pux" path="res://userinterfaces/game_ui/game_ui.tscn" id="1_72x35"]
 [ext_resource type="PackedScene" uid="uid://cdbe6xqbo6g02" path="res://objects/cat/cat.tscn" id="1_d6la8"]
-[ext_resource type="PackedScene" uid="uid://r81o4dd6q7kk" path="res://objects/makecatinator/makecatinator.tscn" id="2_8e2g8"]
 [ext_resource type="PackedScene" uid="uid://dk5rit54p6xvu" path="res://objects/obstacles/spike/spike.tscn" id="3_ikh4w"]
 [ext_resource type="PackedScene" uid="uid://c3bqc4t18b1i5" path="res://objects/obstacles/fire/fire.tscn" id="4_42i0g"]
 [ext_resource type="PackedScene" uid="uid://dl3r44n5sqrh5" path="res://objects/obstacles/hammer/hammer.tscn" id="5_0t2c5"]
+[ext_resource type="PackedScene" uid="uid://cv6b35r0nnsp2" path="res://objects/obstacles/treadmill/treadmill.tscn" id="7_bn2t1"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_1m1bm"]
+resource_name = "Obstacles"
+scenes/1/scene = ExtResource("4_42i0g")
+scenes/2/scene = ExtResource("5_0t2c5")
+scenes/3/scene = ExtResource("3_ikh4w")
+scenes/4/scene = ExtResource("7_bn2t1")
+
+[sub_resource type="TileSet" id="TileSet_ob7o0"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetScenesCollectionSource_1m1bm")
 
 [node name="Game" type="Node2D"]
 
@@ -18,23 +29,6 @@
 [node name="Cat2" parent="." instance=ExtResource("1_d6la8")]
 position = Vector2(-1, 3)
 
-[node name="Makecatinator6900" parent="." instance=ExtResource("2_8e2g8")]
-position = Vector2(719, 100)
-
-[node name="Makecatinator6901" parent="." instance=ExtResource("2_8e2g8")]
-position = Vector2(751, 494)
-
-[node name="Makecatinator6902" parent="." instance=ExtResource("2_8e2g8")]
-position = Vector2(310, 467)
-
-[node name="Makecatinator6903" parent="." instance=ExtResource("2_8e2g8")]
-position = Vector2(428, 308)
-
-[node name="Spike" parent="." instance=ExtResource("3_ikh4w")]
-position = Vector2(403, 142)
-
-[node name="Fire" parent="." instance=ExtResource("4_42i0g")]
-position = Vector2(209, 181)
-
-[node name="Hammer" parent="." instance=ExtResource("5_0t2c5")]
-position = Vector2(280, 226)
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_ob7o0")
+format = 2

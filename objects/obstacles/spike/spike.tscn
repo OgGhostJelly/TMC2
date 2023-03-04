@@ -1,32 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://dk5rit54p6xvu"]
+[gd_scene load_steps=5 format=3 uid="uid://dk5rit54p6xvu"]
 
 [ext_resource type="Script" path="res://objects/obstacles/spike/spike.gd" id="1_qhvy3"]
-[ext_resource type="Texture2D" uid="uid://byw6dykvt21uq" path="res://objects/cat/cat.png" id="2_i88qo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bw0to"]
-size = Vector2(16, 16)
+size = Vector2(64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_btvig"]
-atlas = ExtResource("2_i88qo")
-region = Rect2(0, 0, 30, 30)
+[sub_resource type="Gradient" id="Gradient_w7ryw"]
+colors = PackedColorArray(0.212305, 0.212305, 0.212305, 1, 0.31802, 0.31802, 0.31802, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bd2gl"]
-atlas = ExtResource("2_i88qo")
-region = Rect2(30, 0, 30, 30)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5wl17"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_btvig")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bd2gl")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jteet"]
+gradient = SubResource("Gradient_w7ryw")
 
 [node name="Spike" type="Area2D"]
 position = Vector2(2, 1)
@@ -39,7 +22,5 @@ damage = 2.5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bw0to")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -6)
-sprite_frames = SubResource("SpriteFrames_5wl17")
-autoplay = "default"
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_jteet")
