@@ -15,6 +15,11 @@ run/main_scene="res://objects/game/game.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+CatManager="*res://autoloads/cat_manager.gd"
+DataManager="*res://autoloads/data_manager.gd"
+
 [input]
 
 move={
