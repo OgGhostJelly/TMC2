@@ -1,31 +1,30 @@
 extends Node
 
 
-var selected_cat: Cat = null: set = _on_selected_cat_changed
+const GRAB_AMOUNT: int = 2
+var selected_cats: Array = []
 
 
 func _physics_process(_delta: float) -> void:
-	if not is_instance_valid(selected_cat): return
-	selected_cat.move()
+	for cat in selected_cats: cat.move()
+	
+	print(selected_cats)
 
 
 func _input(event: InputEvent) -> void:
 	if not event.is_action("move"): return
-	selected_cat = null if not event.is_pressed() else get_closest_cat()
+	selected_cats = [] if not event.is_pressed() else get_cats().slice(0,GRAB_AMOUNT)
 
 
-func get_closest_cat() -> Cat:
+func get_cats() -> Array:
 	var global_mouse_position: Vector2 = get_tree().current_scene.get_global_mouse_position()
-	var closest_cat: Cat = null
-	var closest_distance: float = INF
+
+	var cats: Array = get_tree().get_nodes_in_group('cats')
+	cats.sort_custom(func(a,b):
+		return global_mouse_position.distance_squared_to(a.global_position) < global_mouse_position.distance_squared_to(b.global_position)
+		)
 	
-	for cat in get_tree().get_nodes_in_group('cats'):
-		var distance: float = global_mouse_position.distance_squared_to(cat.global_position)
-		if distance < closest_distance:
-			closest_distance = distance
-			closest_cat = cat
-	
-	return closest_cat
+	return cats
 
 
 func spawn_cat(position: Vector2) -> void:
@@ -33,11 +32,3 @@ func spawn_cat(position: Vector2) -> void:
 	var obj: Node2D = cat.instantiate()
 	obj.global_position = position
 	get_tree().current_scene.call_deferred('add_child', obj)
-
-
-func _on_selected_cat_changed(value: Cat) -> void:
-	if not selected_cat == value:
-		if is_instance_valid(value): value.selected()
-		if is_instance_valid(selected_cat): selected_cat.deselected()
-	
-	selected_cat = value

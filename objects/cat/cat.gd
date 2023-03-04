@@ -2,7 +2,8 @@ extends RigidBody2D
 class_name Cat
 
 
-@export var speed: float = 1.5
+@export var speeds: Vector2 = Vector2(0.3,1.5)
+var speed: float = randf_range(speeds.x, speeds.y)
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 
 

@@ -37,3 +37,9 @@ layer_0/tile_data = PackedInt32Array(262151, 0, 131072, 393222, 0, 196608, 45875
 
 [node name="Cat2" parent="." instance=ExtResource("1_d6la8")]
 position = Vector2(229, 187)
+
+[connection signal="body_entered" from="TileMap/TreadmillUp" to="TileMap/TreadmillUp" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@22697" to="TileMap/@TreadmillUp@22697" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TreadmillDown" to="TileMap/TreadmillDown" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@22698" to="TileMap/@TreadmillDown@22698" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/Makecatinator6900" to="TileMap/Makecatinator6900" method="_on_body_entered" flags=18]
