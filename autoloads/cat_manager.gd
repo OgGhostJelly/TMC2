@@ -2,7 +2,7 @@ extends Node
 
 
 const GRAB_AMOUNT: int = 2
-var selected_cats: Array = []
+var selected_cats: Array = []: set = _on_selected_cats_changed
 
 
 func _physics_process(_delta: float) -> void:
@@ -32,3 +32,12 @@ func spawn_cat(position: Vector2) -> void:
 	var obj: Node2D = cat.instantiate()
 	obj.global_position = position
 	get_tree().current_scene.call_deferred('add_child', obj)
+
+
+func _on_selected_cats_changed(value: Array) -> void:
+	for cat in selected_cats:
+		if not value.has(cat): cat.deselected()
+	for cat in value:
+		if not selected_cats.has(value): cat.selected()
+	
+	selected_cats = value
