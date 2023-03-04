@@ -1,18 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgmw3l80ht8yv"]
+[gd_scene load_steps=11 format=3 uid="uid://qh7udeh2f0p8"]
 
 [ext_resource type="PackedScene" uid="uid://b65bep1mo3pux" path="res://userinterfaces/game_ui/game_ui.tscn" id="1_72x35"]
 [ext_resource type="PackedScene" uid="uid://cdbe6xqbo6g02" path="res://objects/cat/cat.tscn" id="1_d6la8"]
 [ext_resource type="PackedScene" uid="uid://dk5rit54p6xvu" path="res://objects/obstacles/spike/spike.tscn" id="3_ikh4w"]
 [ext_resource type="PackedScene" uid="uid://c3bqc4t18b1i5" path="res://objects/obstacles/fire/fire.tscn" id="4_42i0g"]
 [ext_resource type="PackedScene" uid="uid://dl3r44n5sqrh5" path="res://objects/obstacles/hammer/hammer.tscn" id="5_0t2c5"]
-[ext_resource type="PackedScene" uid="uid://cv6b35r0nnsp2" path="res://objects/obstacles/treadmill/treadmill.tscn" id="7_bn2t1"]
+[ext_resource type="PackedScene" uid="uid://d0neasvqt2rm5" path="res://objects/obstacles/treadmill/treadmill_up.tscn" id="6_665c1"]
+[ext_resource type="PackedScene" uid="uid://t76pwel8ukw4" path="res://objects/obstacles/treadmill/treadmill_down.tscn" id="7_rgosc"]
+[ext_resource type="PackedScene" uid="uid://r81o4dd6q7kk" path="res://objects/makecatinator/makecatinator.tscn" id="8_au7ud"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_1m1bm"]
 resource_name = "Obstacles"
 scenes/1/scene = ExtResource("4_42i0g")
 scenes/2/scene = ExtResource("5_0t2c5")
 scenes/3/scene = ExtResource("3_ikh4w")
-scenes/4/scene = ExtResource("7_bn2t1")
+scenes/4/scene = ExtResource("6_665c1")
+scenes/5/scene = ExtResource("7_rgosc")
+scenes/6/scene = ExtResource("8_au7ud")
 
 [sub_resource type="TileSet" id="TileSet_ob7o0"]
 tile_size = Vector2i(64, 64)
@@ -32,3 +36,6 @@ position = Vector2(-1, 3)
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ob7o0")
 format = 2
+layer_0/tile_data = PackedInt32Array(262151, 0, 131072, 393222, 0, 196608, 458757, 0, 196608, 524294, 0, 196608, 458759, 0, 196608, 458758, 0, 196608, 131078, 0, 196608, 65543, 0, 196608, 65542, 0, 196608, 65541, 0, 196608, 6, 0, 196608, 524300, 0, 65536, 458764, 0, 65536, 458765, 0, 65536, 524301, 0, 65536, 65548, 0, 65536, 12, 0, 65536, 13, 0, 65536, 65549, 0, 65536, 327691, 0, 327680, 393227, 0, 327680, 196619, 0, 262144, 131083, 0, 262144, 262159, 0, 393216)
+
+[connection signal="body_entered" from="TileMap/Makecatinator6900" to="TileMap/Makecatinator6900" method="_on_body_entered" flags=18]

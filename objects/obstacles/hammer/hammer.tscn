@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl3r44n5sqrh5"]
+[gd_scene load_steps=7 format=3 uid="uid://dl3r44n5sqrh5"]
 
 [ext_resource type="Script" path="res://objects/obstacles/hammer/hammer.gd" id="1_6sr6y"]
 
@@ -10,6 +10,14 @@ colors = PackedColorArray(0.571623, 0.226896, 0, 1, 1, 0.341176, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_guojc"]
 gradient = SubResource("Gradient_bu5n1")
+
+[sub_resource type="Gradient" id="Gradient_7tof7"]
+colors = PackedColorArray(0.980392, 0.32549, 0, 1, 1, 0.513726, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ojqxo"]
+gradient = SubResource("Gradient_7tof7")
+width = 32
+height = 32
 
 [node name="Hammer" type="Node2D"]
 script = ExtResource("1_6sr6y")
@@ -25,4 +33,4 @@ shape = SubResource("RectangleShape2D_q58of")
 texture = SubResource("GradientTexture2D_guojc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_guojc")
+texture = SubResource("GradientTexture2D_ojqxo")

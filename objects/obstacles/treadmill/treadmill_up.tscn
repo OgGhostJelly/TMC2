@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0neasvqt2rm5"]
+
+[sub_resource type="Gradient" id="Gradient_pqgk6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rttqr"]
+gradient = SubResource("Gradient_pqgk6")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kx1an"]
+size = Vector2(62, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cfqr"]
+size = Vector2(1, 64)
+
+[node name="TreadmillUp" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_rttqr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kx1an")
+
+[node name="Pusher" type="StaticBody2D" parent="."]
+collision_mask = 0
+constant_linear_velocity = Vector2(0, -400)
+
+[node name="LeftCollisionShape" type="CollisionShape2D" parent="Pusher"]
+position = Vector2(-31.5, 0)
+shape = SubResource("RectangleShape2D_4cfqr")
+
+[node name="RightCollisionShape" type="CollisionShape2D" parent="Pusher"]
+position = Vector2(31.5, 0)
+shape = SubResource("RectangleShape2D_4cfqr")

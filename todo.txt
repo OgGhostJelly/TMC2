@@ -1,0 +1,1 @@
+make treadmill better by using area instead of static body to push stuff
