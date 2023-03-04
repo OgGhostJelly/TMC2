@@ -1,14 +1,13 @@
 extends Node
 
 
-const GRAB_AMOUNT: int = 2
+const GRAB_AMOUNT: int = 3
+const MAX_DISTANCE: float = 100.0
 var selected_cats: Array = []: set = _on_selected_cats_changed
 
 
 func _physics_process(_delta: float) -> void:
-	for cat in selected_cats: cat.move()
-	
-	print(selected_cats)
+	for cat in selected_cats: if is_instance_valid(cat): cat.move()
 
 
 func _input(event: InputEvent) -> void:
@@ -17,12 +16,22 @@ func _input(event: InputEvent) -> void:
 
 
 func get_cats() -> Array:
-	var global_mouse_position: Vector2 = get_tree().current_scene.get_global_mouse_position()
-
+	
 	var cats: Array = get_tree().get_nodes_in_group('cats')
-	cats.sort_custom(func(a,b):
-		return global_mouse_position.distance_squared_to(a.global_position) < global_mouse_position.distance_squared_to(b.global_position)
+	
+	# sort cats by distance from mouse with 0 being closest
+	cats.sort_custom(func(a: Cat,b: Cat):
+		a.update_distance_to_mouse_squared()
+		b.update_distance_to_mouse_squared()
+		return a.distance_to_mouse_squared < b.distance_to_mouse_squared
 		)
+	
+	# remove all cats that are further than max_distance_squared from the mouse
+	var max_distance_squared: float = pow(MAX_DISTANCE, 2)
+	for i in cats.size():
+		if cats[i].distance_to_mouse_squared > max_distance_squared:
+			cats = cats.slice(0, i)
+			break
 	
 	return cats
 
@@ -36,8 +45,8 @@ func spawn_cat(position: Vector2) -> void:
 
 func _on_selected_cats_changed(value: Array) -> void:
 	for cat in selected_cats:
-		if not value.has(cat): cat.deselected()
+		if not value.has(cat): if is_instance_valid(cat): cat.deselected()
 	for cat in value:
-		if not selected_cats.has(value): cat.selected()
+		if not selected_cats.has(value): if is_instance_valid(cat): cat.selected()
 	
 	selected_cats = value
