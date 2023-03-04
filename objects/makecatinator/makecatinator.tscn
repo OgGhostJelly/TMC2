@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://r81o4dd6q7kk"]
+
+[ext_resource type="Script" path="res://objects/makecatinator/makecatinator.gd" id="1_es2pm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vll07"]
+size = Vector2(64, 64)
+
+[node name="Makecatinator6900" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_es2pm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vll07")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
