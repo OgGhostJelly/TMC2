@@ -9,8 +9,8 @@ func _physics_process(delta: float) -> void:
 	
 	# get all cats positions
 	var cats_position: Array = get_tree().get_nodes_in_group('cats').map(func(x): return x.global_position)
-	# get the average of all the positions
-	var averaged_vector: Vector2 = cats_position.reduce(func(accum, vec): return ( vec + accum ) / 2, cats_position.pop_front())
+	# get the center of all positions
+	var center: Vector2 = cats_position.reduce(func(rect, pos): return rect.expand(pos), Rect2(global_position.x, global_position.y, 0, 0)).get_center()
 	
-	if averaged_vector.x > global_position.x:
-		global_position.x = averaged_vector.x
+	if global_position.x < center.x:
+		global_position.x = center.x
