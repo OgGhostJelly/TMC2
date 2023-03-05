@@ -8,16 +8,19 @@ var selected_drag_items: Array = []: set = _on_selected_drag_items_changed
 
 
 func _physics_process(_delta: float) -> void:
+	#print(selected_drag_items)
 	for drag_item in selected_drag_items: if can_use_method(drag_item, '_drag'): drag_item._drag()
 
 
 func _input(event: InputEvent) -> void:
 	if not event.is_action("move"): return
-	selected_drag_items = [] if not event.is_pressed() else get_drag_items().slice(0,GRAB_AMOUNT)
+	if not event.is_pressed():
+		selected_drag_items = []
+	else:
+		selected_drag_items = get_drag_items().slice(0,GRAB_AMOUNT)
 
 
 func get_drag_items() -> Array:
-	
 	var drag_items: Array = get_tree().get_nodes_in_group('drag_items')
 	var distance_squared: Dictionary = {}
 	for x in drag_items: distance_squared[x] = x.get_global_mouse_position().distance_squared_to(x.global_position)
@@ -38,18 +41,18 @@ func get_drag_items() -> Array:
 
 
 func _on_selected_drag_items_changed(value: Array) -> void:
-	for drag_item in selected_drag_items as Array[Node]:
-		if value.has(drag_item): return
-		if not can_use_method(drag_item, '_deselected'): return
+	for drag_item in selected_drag_items:
+		if value.has(drag_item): break
+		if not can_use_method(drag_item, '_deselected'): break
 		drag_item._deselected()
 	
 	for drag_item in value:
-		if selected_drag_items.has(value): return
-		if not can_use_method(drag_item, '_selected'): return
+		if selected_drag_items.has(value): break
+		if not can_use_method(drag_item, '_selected'): break
 		drag_item._selected()
 	
 	selected_drag_items = value
 
 
-func can_use_method(node: Node, method: String):
+func can_use_method(node, method: String):
 	return is_instance_valid(node) and node.has_method(method)

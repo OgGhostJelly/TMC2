@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://bq8mxsmhe4dow"]
+
+[ext_resource type="Script" path="res://objects/obstacles/gate/drag_point.gd" id="2_x86u4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djt45"]
+size = Vector2(32, 32)
+
+[sub_resource type="Gradient" id="Gradient_thceq"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bbqwl"]
+gradient = SubResource("Gradient_thceq")
+width = 32
+height = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ki4m3"]
+size = Vector2(64, 256)
+
+[sub_resource type="Gradient" id="Gradient_u4fss"]
+colors = PackedColorArray(0.941176, 1, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jmpso"]
+gradient = SubResource("Gradient_u4fss")
+height = 256
+
+[node name="Gate" type="Node2D"]
+
+[node name="PivotPoint" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PivotPoint"]
+shape = SubResource("RectangleShape2D_djt45")
+
+[node name="Sprite2D" type="Sprite2D" parent="PivotPoint"]
+texture = SubResource("GradientTexture2D_bbqwl")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="PivotPoint"]
+node_a = NodePath("..")
+node_b = NodePath("../../Handle")
+
+[node name="Handle" type="RigidBody2D" parent="."]
+position = Vector2(0, 128)
+collision_layer = 4
+collision_mask = 4
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Handle"]
+shape = SubResource("RectangleShape2D_ki4m3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Handle"]
+texture = SubResource("GradientTexture2D_jmpso")
+
+[node name="DragPoint" type="Marker2D" parent="Handle" node_paths=PackedStringArray("handle") groups=["drag_items"]]
+position = Vector2(0, -96)
+script = ExtResource("2_x86u4")
+handle = NodePath("..")
+
+[node name="DragPoint2" type="Marker2D" parent="Handle" node_paths=PackedStringArray("handle") groups=["drag_items"]]
+script = ExtResource("2_x86u4")
+handle = NodePath("..")
+
+[node name="DragPoint3" type="Marker2D" parent="Handle" node_paths=PackedStringArray("handle") groups=["drag_items"]]
+position = Vector2(0, 64)
+script = ExtResource("2_x86u4")
+handle = NodePath("..")

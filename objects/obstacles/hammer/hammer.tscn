@@ -1,6 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://dl3r44n5sqrh5"]
+[gd_scene load_steps=8 format=3 uid="uid://dl3r44n5sqrh5"]
 
-[ext_resource type="Script" path="res://objects/obstacles/hammer/hammer.gd" id="1_6sr6y"]
+[ext_resource type="Script" path="res://objects/obstacles/hammer/puncher.gd" id="1_2oj22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6fx6"]
+size = Vector2(32, 32)
+
+[sub_resource type="Gradient" id="Gradient_7tof7"]
+colors = PackedColorArray(0.980392, 0.32549, 0, 1, 1, 0.513726, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ojqxo"]
+gradient = SubResource("Gradient_7tof7")
+width = 32
+height = 32
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q58of"]
 size = Vector2(64, 64)
@@ -11,26 +22,29 @@ colors = PackedColorArray(0.571623, 0.226896, 0, 1, 1, 0.341176, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_guojc"]
 gradient = SubResource("Gradient_bu5n1")
 
-[sub_resource type="Gradient" id="Gradient_7tof7"]
-colors = PackedColorArray(0.980392, 0.32549, 0, 1, 1, 0.513726, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ojqxo"]
-gradient = SubResource("Gradient_7tof7")
-width = 32
-height = 32
-
 [node name="Hammer" type="Node2D"]
-script = ExtResource("1_6sr6y")
 
-[node name="Puncher" type="CharacterBody2D" parent="."]
+[node name="PivotPoint" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PivotPoint"]
+shape = SubResource("RectangleShape2D_i6fx6")
+
+[node name="Sprite2D" type="Sprite2D" parent="PivotPoint"]
+texture = SubResource("GradientTexture2D_ojqxo")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="PivotPoint"]
+node_a = NodePath("..")
+node_b = NodePath("../../Puncher")
+
+[node name="Puncher" type="RigidBody2D" parent="."]
 position = Vector2(0, 128)
-collision_mask = 0
+collision_layer = 4
+collision_mask = 4
+gravity_scale = 0.0
+script = ExtResource("1_2oj22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Puncher"]
 shape = SubResource("RectangleShape2D_q58of")
 
 [node name="Sprite2D" type="Sprite2D" parent="Puncher"]
 texture = SubResource("GradientTexture2D_guojc")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_ojqxo")
