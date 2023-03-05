@@ -138,7 +138,6 @@ speed = 1.5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushDraggable"]
 shape = SubResource("CircleShape2D_51o7j")
 
-[node name="VisibleOnScreenKiller2D" type="VisibleOnScreenNotifier2D" parent="." node_paths=PackedStringArray("health")]
-rect = Rect2(-50, -50, 100, 100)
+[node name="VisibleOnScreenKiller2D" type="Node2D" parent="." node_paths=PackedStringArray("health")]
 script = ExtResource("8_72l8f")
 health = NodePath("../HealthComponent")
