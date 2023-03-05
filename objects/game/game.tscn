@@ -49,7 +49,7 @@ speed = 20.0
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ob7o0")
 format = 2
-layer_0/tile_data = PackedInt32Array(262151, 0, 131072, 393222, 0, 196608, 458757, 0, 196608, 524294, 0, 196608, 458759, 0, 196608, 458758, 0, 196608, 131078, 0, 196608, 65543, 0, 196608, 65542, 0, 196608, 65541, 0, 196608, 6, 0, 196608, 524300, 0, 65536, 458764, 0, 65536, 458765, 0, 65536, 524301, 0, 65536, 65548, 0, 65536, 12, 0, 65536, 13, 0, 65536, 65549, 0, 65536, 327691, 0, 327680, 393227, 0, 327680, 196619, 0, 262144, 131083, 0, 262144, 262159, 0, 393216, 131081, 0, 458752)
+layer_0/tile_data = PackedInt32Array(262151, 0, 131072, 393222, 0, 196608, 458757, 0, 196608, 524294, 0, 196608, 458759, 0, 196608, 458758, 0, 196608, 131078, 0, 196608, 65543, 0, 196608, 65542, 0, 196608, 65541, 0, 196608, 6, 0, 196608, 524300, 0, 65536, 458764, 0, 65536, 458765, 0, 65536, 524301, 0, 65536, 65548, 0, 65536, 12, 0, 65536, 13, 0, 65536, 65549, 0, 65536, 327691, 0, 327680, 393227, 0, 327680, 196619, 0, 262144, 131083, 0, 262144, 262159, 0, 393216, 131093, 0, 458752, 458773, 0, 196608, 524309, 0, 196608, 65557, 0, 196608, 21, 0, 196608)
 
 [node name="Cat" parent="." instance=ExtResource("1_d6la8")]
 position = Vector2(274, 200)
@@ -58,7 +58,7 @@ position = Vector2(274, 200)
 position = Vector2(229, 187)
 
 [connection signal="body_entered" from="TileMap/TreadmillUp" to="TileMap/TreadmillUp" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillUp@123067" to="TileMap/@TreadmillUp@123067" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@146404" to="TileMap/@TreadmillUp@146404" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="TileMap/TreadmillDown" to="TileMap/TreadmillDown" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillDown@123068" to="TileMap/@TreadmillDown@123068" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@146405" to="TileMap/@TreadmillDown@146405" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="TileMap/Makecatinator6900" to="TileMap/Makecatinator6900" method="_on_body_entered" flags=18]

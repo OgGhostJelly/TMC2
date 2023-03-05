@@ -1,0 +1,1 @@
+make drag_manager drag areas and not position

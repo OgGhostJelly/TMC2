@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" path="res://objects/obstacles/fire/fire.gd" id="1_61lja"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_knk50"]
-size = Vector2(64, 64)
-
 [sub_resource type="Gradient" id="Gradient_d5ah3"]
 offsets = PackedFloat32Array(0, 0.993548)
 colors = PackedColorArray(1, 0.780392, 0, 1, 1, 0.556863, 0, 1)
@@ -12,13 +9,16 @@ colors = PackedColorArray(1, 0.780392, 0, 1, 1, 0.556863, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4iyl0"]
 gradient = SubResource("Gradient_d5ah3")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knk50"]
+size = Vector2(64, 64)
+
 [node name="Fire" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_61lja")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_knk50")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_4iyl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_knk50")

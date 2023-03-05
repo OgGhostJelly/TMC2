@@ -12,15 +12,16 @@ gradient = SubResource("Gradient_thceq")
 width = 32
 height = 32
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ki4m3"]
-size = Vector2(64, 256)
-
 [sub_resource type="Gradient" id="Gradient_u4fss"]
 colors = PackedColorArray(0.941176, 1, 0, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_jmpso"]
 gradient = SubResource("Gradient_u4fss")
-height = 256
+width = 32
+height = 320
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ki4m3"]
+size = Vector2(32, 320)
 
 [node name="Gate" type="Node2D"]
 
@@ -44,11 +45,11 @@ collision_layer = 4
 collision_mask = 4
 gravity_scale = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Handle"]
-shape = SubResource("RectangleShape2D_ki4m3")
-
 [node name="Sprite2D" type="Sprite2D" parent="Handle"]
 texture = SubResource("GradientTexture2D_jmpso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Handle"]
+shape = SubResource("RectangleShape2D_ki4m3")
 
 [node name="DragPoint" type="Marker2D" parent="Handle" node_paths=PackedStringArray("handle") groups=["drag_items"]]
 position = Vector2(0, -96)
