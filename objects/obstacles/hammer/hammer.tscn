@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dl3r44n5sqrh5"]
+[gd_scene load_steps=11 format=3 uid="uid://dl3r44n5sqrh5"]
 
 [ext_resource type="Script" path="res://objects/obstacles/hammer/puncher.gd" id="1_2oj22"]
+[ext_resource type="Script" path="res://components/push_draggable.gd" id="2_kr7oy"]
 
 [sub_resource type="Gradient" id="Gradient_7tof7"]
 colors = PackedColorArray(0.980392, 0.32549, 0, 1, 1, 0.513726, 0, 1)
@@ -24,6 +25,9 @@ gradient = SubResource("Gradient_bu5n1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q58of"]
 size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slsdn"]
+size = Vector2(96, 96)
 
 [node name="Hammer" type="Node2D"]
 
@@ -55,3 +59,9 @@ texture = SubResource("GradientTexture2D_guojc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Puncher"]
 shape = SubResource("RectangleShape2D_q58of")
+
+[node name="PushDraggable" type="Area2D" parent="Puncher"]
+script = ExtResource("2_kr7oy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puncher/PushDraggable"]
+shape = SubResource("RectangleShape2D_slsdn")
