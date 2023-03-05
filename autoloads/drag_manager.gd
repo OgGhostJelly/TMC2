@@ -19,7 +19,11 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		get_viewport().warp_mouse(selected_draggables[0].get_global_transform_with_canvas().origin)
+		if selected_draggables.is_empty(): return
+		var positions: Array = selected_draggables.filter(func(x): return x and is_instance_valid(x))
+		positions = selected_draggables.map(func(x): return x.get_global_transform_with_canvas().origin)
+		var averaged_vector: Vector2 = positions.reduce(func(accum, vec): return ( vec + accum ) / 2, positions.pop_front())
+		get_viewport().warp_mouse(averaged_vector)
 	
 	selected_draggables = hovered_draggables if event.is_pressed() else []
 
@@ -27,7 +31,9 @@ func _input(event: InputEvent) -> void:
 func _on_selected_draggables_changed(value: Array) -> void:
 	# Pre-calculate distance squared
 	var distance_squared: Dictionary = {}
-	for x in value: if is_instance_valid(x): distance_squared[x] = x.get_global_mouse_position().distance_squared_to(x.global_position)
+	for x in value:
+		if not is_instance_valid(x): value.erase(x); continue
+		distance_squared[x] = x.get_global_mouse_position().distance_squared_to(x.global_position)
 	
 	# Sort by closest
 	value.sort_custom(func(a, b):
