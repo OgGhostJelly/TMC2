@@ -19,6 +19,10 @@ script/source = "extends Camera2D
 
 func _physics_process(delta: float) -> void:
 	global_position.x += speed * delta
+
+
+func _on_timer_timeout() -> void:
+	DataManager.score += 1
 "
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_1m1bm"]
@@ -42,6 +46,9 @@ anchor_mode = 0
 script = SubResource("GDScript_cxgxh")
 speed = 20.0
 
+[node name="Timer" type="Timer" parent="Camera2D"]
+autostart = true
+
 [node name="Forelayer" type="CanvasLayer" parent="."]
 
 [node name="GameUI" parent="Forelayer" instance=ExtResource("1_72x35")]
@@ -56,3 +63,10 @@ position = Vector2(274, 200)
 
 [node name="Cat2" parent="." instance=ExtResource("1_d6la8")]
 position = Vector2(229, 187)
+
+[connection signal="timeout" from="Camera2D/Timer" to="Camera2D" method="_on_timer_timeout"]
+[connection signal="body_entered" from="TileMap/TreadmillUp" to="TileMap/TreadmillUp" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@115581" to="TileMap/@TreadmillUp@115581" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TreadmillDown" to="TileMap/TreadmillDown" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@115582" to="TileMap/@TreadmillDown@115582" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/Makecatinator6900" to="TileMap/Makecatinator6900" method="_on_body_entered" flags=18]

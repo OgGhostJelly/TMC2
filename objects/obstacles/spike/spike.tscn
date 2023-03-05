@@ -17,7 +17,6 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("1_qhvy3")
-damage = 2.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_jteet")

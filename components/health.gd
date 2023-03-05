@@ -5,7 +5,7 @@ signal health_changed
 signal died
 
 
-@export var health: float = 5.0: set = _on_health_changed
+@export var health: float = 1.0: set = _on_health_changed
 
 
 func _on_health_changed(value: float) -> void:

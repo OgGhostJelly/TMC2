@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cdbe6xqbo6g02"]
+[gd_scene load_steps=19 format=3 uid="uid://cdbe6xqbo6g02"]
 
 [ext_resource type="Texture2D" uid="uid://byw6dykvt21uq" path="res://objects/cat/cat.png" id="2_2qq4l"]
 [ext_resource type="Script" path="res://components/health.gd" id="3_jt7g1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://components/particles_on_death.gd" id="6_8xvr2"]
 [ext_resource type="Script" path="res://components/change_score_on_death.gd" id="7_65rod"]
 [ext_resource type="Script" path="res://components/push_draggable.gd" id="7_ps1eo"]
+[ext_resource type="Script" path="res://components/visible_on_screen_killer.gd" id="8_72l8f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f21g2"]
 size = Vector2(16, 16)
@@ -100,7 +101,7 @@ offset_left = -13.0
 offset_top = -27.0
 offset_right = 16.0
 offset_bottom = -23.0
-max_value = 5.0
+max_value = 1.0
 show_percentage = false
 script = ExtResource("5_d2pk2")
 health_component = NodePath("../HealthComponent")
@@ -140,3 +141,10 @@ script = ExtResource("7_ps1eo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushDraggable"]
 shape = SubResource("CircleShape2D_51o7j")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="VisibleOnScreenKiller2D" type="VisibleOnScreenNotifier2D" parent="." node_paths=PackedStringArray("health")]
+rect = Rect2(-50, -50, 100, 100)
+script = ExtResource("8_72l8f")
+health = NodePath("../HealthComponent")
