@@ -3,56 +3,41 @@ extends Node
 
 
 const GRAB_AMOUNT: int = 3
-const MAX_DISTANCE: float = 50.0
-var selected_drag_items: Array = []: set = _on_selected_drag_items_changed
+var hovered_draggables: Array = []
+var selected_draggables: Array = []: set = _on_selected_draggables_changed
 
 
 func _physics_process(_delta: float) -> void:
-	#print(selected_drag_items)
-	for drag_item in selected_drag_items: if can_use_method(drag_item, '_drag'): drag_item._drag()
+	for v in selected_draggables: if is_instance_valid(v) and v.has_method('_drag'): v._drag()
 
 
 func _input(event: InputEvent) -> void:
 	if not event.is_action("move"): return
-	if not event.is_pressed():
-		selected_drag_items = []
-	else:
-		selected_drag_items = get_drag_items().slice(0,GRAB_AMOUNT)
+	selected_draggables = hovered_draggables
 
 
-func get_drag_items() -> Array:
-	var drag_items: Array = get_tree().get_nodes_in_group('drag_items')
+func _on_selected_draggables_changed(value: Array) -> void:
+	# Pre-calculate distance squared
 	var distance_squared: Dictionary = {}
-	for x in drag_items: distance_squared[x] = x.get_global_mouse_position().distance_squared_to(x.global_position)
+	for x in value: distance_squared[x] = x.get_global_mouse_position().distance_squared_to(x.global_position)
 	
-	# sort drag_items by distance from mouse with 0 being closest
-	drag_items.sort_custom(func(a,b):
+	# Sort by closest
+	value.sort_custom(func(a, b):
 		return distance_squared[a] < distance_squared[b]
 		)
 	
-	# remove all drag_items that are further than max_distance_squared from the mouse
-	var max_distance_squared: float = pow(MAX_DISTANCE, 2)
-	for i in drag_items.size():
-		if distance_squared[drag_items[i]] > max_distance_squared:
-			drag_items = drag_items.slice(0, i)
-			break
-	
-	return drag_items
+	# Cap max grab amount
+	selected_draggables = value.slice(0, GRAB_AMOUNT)
 
 
-func _on_selected_drag_items_changed(value: Array) -> void:
-	for drag_item in selected_drag_items:
-		if value.has(drag_item): break
-		if not can_use_method(drag_item, '_deselected'): break
-		drag_item._deselected()
-	
-	for drag_item in value:
-		if selected_drag_items.has(value): break
-		if not can_use_method(drag_item, '_selected'): break
-		drag_item._selected()
-	
-	selected_drag_items = value
+func draggable_mouse_entered(draggable: Area2D) -> void: hovered_draggables.append(draggable)
+func draggable_mouse_exited(draggable: Area2D) -> void: hovered_draggables.erase(draggable)
 
 
-func can_use_method(node, method: String):
-	return is_instance_valid(node) and node.has_method(method)
+func connect_draggable(draggable: Area2D) -> void:
+	draggable.mouse_entered.connect(draggable_mouse_entered.bind(draggable))
+	draggable.mouse_exited.connect(draggable_mouse_exited.bind(draggable))
+
+func disconnect_draggable(draggable: Area2D) -> void:
+	draggable.mouse_entered.disconnect(draggable_mouse_entered.bind(draggable))
+	draggable.mouse_exited.connect(draggable_mouse_exited.bind(draggable))

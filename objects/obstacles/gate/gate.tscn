@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq8mxsmhe4dow"]
+[gd_scene load_steps=9 format=3 uid="uid://bq8mxsmhe4dow"]
 
-[ext_resource type="Script" path="res://objects/obstacles/gate/drag_point.gd" id="2_x86u4"]
+[ext_resource type="Script" path="res://components/push_draggable.gd" id="1_r6t44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djt45"]
 size = Vector2(32, 32)
@@ -22,6 +22,9 @@ height = 320
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ki4m3"]
 size = Vector2(32, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wuwii"]
+size = Vector2(64, 384)
 
 [node name="Gate" type="Node2D"]
 
@@ -51,16 +54,12 @@ texture = SubResource("GradientTexture2D_jmpso")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Handle"]
 shape = SubResource("RectangleShape2D_ki4m3")
 
-[node name="DragPoint" type="Marker2D" parent="Handle" node_paths=PackedStringArray("handle") groups=["drag_items"]]
-position = Vector2(0, -96)
-script = ExtResource("2_x86u4")
-handle = NodePath("..")
+[node name="PushDraggable" type="Area2D" parent="Handle"]
+collision_layer = 2147483648
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_r6t44")
+speeds = Vector2(1, 1)
 
-[node name="DragPoint2" type="Marker2D" parent="Handle" node_paths=PackedStringArray("handle") groups=["drag_items"]]
-script = ExtResource("2_x86u4")
-handle = NodePath("..")
-
-[node name="DragPoint3" type="Marker2D" parent="Handle" node_paths=PackedStringArray("handle") groups=["drag_items"]]
-position = Vector2(0, 64)
-script = ExtResource("2_x86u4")
-handle = NodePath("..")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Handle/PushDraggable"]
+shape = SubResource("RectangleShape2D_wuwii")
