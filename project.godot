@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 CatManager="*res://autoloads/cat_manager.gd"
 DataManager="*res://autoloads/data_manager.gd"
+DragManager="*res://autoloads/drag_manager.gd"
 
 [input]
 
