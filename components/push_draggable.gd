@@ -3,8 +3,7 @@ class_name PushDraggable
 
 
 @onready var parent: RigidBody2D = get_parent()
-@export var speeds: Vector2 = Vector2(0.3,1.5)
-var speed: float = randf_range(speeds.x, speeds.y)
+@export var speed: float = 1.0
 
 
 func _drag():
