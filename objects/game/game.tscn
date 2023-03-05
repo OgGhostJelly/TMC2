@@ -44,7 +44,6 @@ sources/0 = SubResource("TileSetScenesCollectionSource_1m1bm")
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 script = SubResource("GDScript_cxgxh")
-speed = 20.0
 
 [node name="Timer" type="Timer" parent="Camera2D"]
 autostart = true
@@ -56,17 +55,24 @@ autostart = true
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ob7o0")
 format = 2
-layer_0/tile_data = PackedInt32Array(262151, 0, 131072, 393222, 0, 196608, 458757, 0, 196608, 524294, 0, 196608, 458759, 0, 196608, 458758, 0, 196608, 131078, 0, 196608, 65543, 0, 196608, 65542, 0, 196608, 65541, 0, 196608, 6, 0, 196608, 524300, 0, 65536, 458764, 0, 65536, 458765, 0, 65536, 524301, 0, 65536, 65548, 0, 65536, 12, 0, 65536, 13, 0, 65536, 65549, 0, 65536, 327691, 0, 327680, 393227, 0, 327680, 196619, 0, 262144, 131083, 0, 262144, 262159, 0, 393216, 131093, 0, 458752, 458773, 0, 196608, 524309, 0, 196608, 65557, 0, 196608, 21, 0, 196608)
+layer_0/tile_data = PackedInt32Array(131093, 0, 196608, 393237, 0, 196608, 65558, 0, 196608, 458774, 0, 196608, 65556, 0, 196608, 458772, 0, 196608, 21, 0, 196608, 65557, 0, 196608, 458773, 0, 196608, 524309, 0, 196608, 262166, 0, 131072, 131098, 0, 262144, 196634, 0, 262144, 327706, 0, 327680, 393242, 0, 327680, 27, 0, 65536, 65563, 0, 65536, 458779, 0, 65536, 524315, 0, 65536, 28, 0, 65536, 65564, 0, 65536, 458780, 0, 65536, 524316, 0, 65536, 262174, 0, 393216, 36, 0, 196608, 65572, 0, 196608, 131108, 0, 458752, 458788, 0, 196608, 524324, 0, 196608)
 
 [node name="Cat" parent="." instance=ExtResource("1_d6la8")]
-position = Vector2(274, 200)
+position = Vector2(614, 283)
 
 [node name="Cat2" parent="." instance=ExtResource("1_d6la8")]
-position = Vector2(229, 187)
+position = Vector2(569, 270)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 502.0
+offset_top = 160.0
+offset_right = 697.0
+offset_bottom = 186.0
+text = "Click and drag the CATS"
 
 [connection signal="timeout" from="Camera2D/Timer" to="Camera2D" method="_on_timer_timeout"]
 [connection signal="body_entered" from="TileMap/TreadmillUp" to="TileMap/TreadmillUp" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillUp@115581" to="TileMap/@TreadmillUp@115581" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@117332" to="TileMap/@TreadmillUp@117332" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="TileMap/TreadmillDown" to="TileMap/TreadmillDown" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillDown@115582" to="TileMap/@TreadmillDown@115582" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@117333" to="TileMap/@TreadmillDown@117333" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="TileMap/Makecatinator6900" to="TileMap/Makecatinator6900" method="_on_body_entered" flags=18]
