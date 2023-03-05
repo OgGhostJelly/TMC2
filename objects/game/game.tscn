@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8ulfide4cn3j"]
+[gd_scene load_steps=13 format=3 uid="uid://b8ulfide4cn3j"]
 
 [ext_resource type="PackedScene" uid="uid://b65bep1mo3pux" path="res://userinterfaces/game_ui/game_ui.tscn" id="1_72x35"]
 [ext_resource type="PackedScene" uid="uid://cdbe6xqbo6g02" path="res://objects/cat/cat.tscn" id="1_d6la8"]
@@ -8,6 +8,18 @@
 [ext_resource type="PackedScene" uid="uid://qhpqfldt35pj" path="res://objects/obstacles/treadmill/treadmill_up.tscn" id="6_665c1"]
 [ext_resource type="PackedScene" uid="uid://bkqo3a5cswrbx" path="res://objects/obstacles/treadmill/treadmill_down.tscn" id="7_rgosc"]
 [ext_resource type="PackedScene" uid="uid://r81o4dd6q7kk" path="res://objects/makecatinator/makecatinator.tscn" id="8_au7ud"]
+[ext_resource type="PackedScene" uid="uid://bq8mxsmhe4dow" path="res://objects/obstacles/gate/gate.tscn" id="8_hpigl"]
+
+[sub_resource type="GDScript" id="GDScript_cxgxh"]
+script/source = "extends Camera2D
+
+
+@export var speed: float = 40.0
+
+
+func _physics_process(delta: float) -> void:
+	global_position.x += speed * delta
+"
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_1m1bm"]
 resource_name = "Obstacles"
@@ -17,12 +29,18 @@ scenes/3/scene = ExtResource("3_ikh4w")
 scenes/4/scene = ExtResource("6_665c1")
 scenes/5/scene = ExtResource("7_rgosc")
 scenes/6/scene = ExtResource("8_au7ud")
+scenes/7/scene = ExtResource("8_hpigl")
 
 [sub_resource type="TileSet" id="TileSet_ob7o0"]
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetScenesCollectionSource_1m1bm")
 
 [node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = SubResource("GDScript_cxgxh")
+speed = 20.0
 
 [node name="Forelayer" type="CanvasLayer" parent="."]
 
@@ -31,15 +49,10 @@ sources/0 = SubResource("TileSetScenesCollectionSource_1m1bm")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ob7o0")
 format = 2
-layer_0/tile_data = PackedInt32Array(262151, 0, 131072, 393222, 0, 196608, 458757, 0, 196608, 524294, 0, 196608, 458759, 0, 196608, 458758, 0, 196608, 131078, 0, 196608, 65543, 0, 196608, 65542, 0, 196608, 65541, 0, 196608, 6, 0, 196608, 524300, 0, 65536, 458764, 0, 65536, 458765, 0, 65536, 524301, 0, 65536, 65548, 0, 65536, 12, 0, 65536, 13, 0, 65536, 65549, 0, 65536, 327691, 0, 327680, 393227, 0, 327680, 196619, 0, 262144, 131083, 0, 262144, 262159, 0, 393216)
+layer_0/tile_data = PackedInt32Array(262151, 0, 131072, 393222, 0, 196608, 458757, 0, 196608, 524294, 0, 196608, 458759, 0, 196608, 458758, 0, 196608, 131078, 0, 196608, 65543, 0, 196608, 65542, 0, 196608, 65541, 0, 196608, 6, 0, 196608, 524300, 0, 65536, 458764, 0, 65536, 458765, 0, 65536, 524301, 0, 65536, 65548, 0, 65536, 12, 0, 65536, 13, 0, 65536, 65549, 0, 65536, 327691, 0, 327680, 393227, 0, 327680, 196619, 0, 262144, 131083, 0, 262144, 262159, 0, 393216, 131093, 0, 458752, 458773, 0, 196608, 524309, 0, 196608, 65557, 0, 196608, 21, 0, 196608)
 
 [node name="Cat" parent="." instance=ExtResource("1_d6la8")]
+position = Vector2(274, 200)
 
 [node name="Cat2" parent="." instance=ExtResource("1_d6la8")]
-position = Vector2(-1, 3)
-
-[connection signal="body_entered" from="TileMap/TreadmillUp" to="TileMap/TreadmillUp" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillUp@17178" to="TileMap/@TreadmillUp@17178" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/TreadmillDown" to="TileMap/TreadmillDown" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillDown@17179" to="TileMap/@TreadmillDown@17179" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/Makecatinator6900" to="TileMap/Makecatinator6900" method="_on_body_entered" flags=18]
+position = Vector2(229, 187)
