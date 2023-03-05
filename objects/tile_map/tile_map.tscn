@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=3 uid="uid://dug0otcbvbjp3"]
+
+[ext_resource type="PackedScene" uid="uid://c3bqc4t18b1i5" path="res://objects/obstacles/fire/fire.tscn" id="1_pbgox"]
+[ext_resource type="PackedScene" uid="uid://dl3r44n5sqrh5" path="res://objects/obstacles/hammer/hammer.tscn" id="2_m0u26"]
+[ext_resource type="PackedScene" uid="uid://dk5rit54p6xvu" path="res://objects/obstacles/spike/spike.tscn" id="3_x6axk"]
+[ext_resource type="PackedScene" uid="uid://qhpqfldt35pj" path="res://objects/obstacles/treadmill/treadmill_up.tscn" id="4_1noqu"]
+[ext_resource type="PackedScene" uid="uid://bkqo3a5cswrbx" path="res://objects/obstacles/treadmill/treadmill_down.tscn" id="5_0l535"]
+[ext_resource type="PackedScene" uid="uid://r81o4dd6q7kk" path="res://objects/makecatinator/makecatinator.tscn" id="6_3sa2n"]
+[ext_resource type="PackedScene" uid="uid://bq8mxsmhe4dow" path="res://objects/obstacles/gate/gate.tscn" id="7_4v5o3"]
+[ext_resource type="PackedScene" uid="uid://0ldvx4yw6nli" path="res://objects/obstacles/win/win.tscn" id="8_t5ja7"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_1m1bm"]
+resource_name = "Obstacles"
+scenes/1/scene = ExtResource("1_pbgox")
+scenes/2/scene = ExtResource("2_m0u26")
+scenes/3/scene = ExtResource("3_x6axk")
+scenes/4/scene = ExtResource("4_1noqu")
+scenes/5/scene = ExtResource("5_0l535")
+scenes/6/scene = ExtResource("6_3sa2n")
+scenes/7/scene = ExtResource("7_4v5o3")
+scenes/8/scene = ExtResource("8_t5ja7")
+
+[sub_resource type="TileSet" id="TileSet_ob7o0"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetScenesCollectionSource_1m1bm")
+
+[node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_ob7o0")
+format = 2
+layer_0/tile_data = PackedInt32Array(393237, 0, 196608, 458773, 0, 196608, 458772, 0, 196608, 524309, 0, 196608, 458774, 0, 196608, 196632, 0, 196608, 131096, 0, 196608, 65560, 0, 196608, 131095, 0, 196608, 131097, 0, 196608, 393243, 0, 196608, 393244, 0, 196608, 327708, 0, 196608, 458780, 0, 196608, 393245, 0, 196608, 35, 0, 65536, 393251, 0, 65536, 524323, 0, 65536, 33, 0, 65536, 393249, 0, 65536, 524321, 0, 65536, 34, 0, 65536, 393250, 0, 65536, 524322, 0, 65536, 393257, 0, 131072, 131113, 0, 131072, 47, 0, 262144, 65583, 0, 262144, 131119, 0, 262144, 196655, 0, 262144, 262191, 0, 262144, 327727, 0, 327680, 393263, 0, 327680, 458799, 0, 327680, 524335, 0, 327680, 65601, 0, 196608, 458817, 0, 196608, 131141, 0, 262144, 196677, 0, 262144, 327749, 0, 327680, 393285, 0, 327680, 65606, 0, 65536, 458822, 0, 65536, 65616, 0, 65536, 131152, 0, 65536, 196688, 0, 65536, 327760, 0, 65536, 393296, 0, 65536, 458832, 0, 65536, 86, 0, 196608, 65622, 0, 196608, 131158, 0, 458752, 458838, 0, 196608, 524374, 0, 196608, 65599, 0, 196608, 458815, 0, 196608, 64, 0, 196608, 65600, 0, 196608, 131136, 0, 196608, 393280, 0, 196608, 458816, 0, 196608, 524352, 0, 196608, 262209, 0, 131072, 70, 0, 65536, 524358, 0, 65536, 71, 0, 65536, 65607, 0, 65536, 458823, 0, 65536, 524359, 0, 65536, 262217, 0, 393216, 77, 0, 196608, 65613, 0, 196608, 131149, 0, 458752, 458829, 0, 196608, 524365, 0, 196608, 81, 0, 65536, 65617, 0, 65536, 131153, 0, 131072, 196689, 0, 65536, 262225, 0, 65536, 327761, 0, 65536, 393297, 0, 131072, 458833, 0, 65536, 65618, 0, 65536, 131154, 0, 65536, 196690, 0, 65536, 327762, 0, 65536, 393298, 0, 65536, 458834, 0, 65536, 85, 0, 196608, 65621, 0, 196608, 131157, 0, 262144, 196693, 0, 262144, 327765, 0, 327680, 393301, 0, 327680, 458837, 0, 196608, 524373, 0, 196608, 90, 0, 196608, 65626, 0, 196608, 131162, 0, 262144, 393306, 0, 327680, 458842, 0, 196608, 524378, 0, 196608, 91, 0, 196608, 65627, 0, 196608, 131163, 0, 196608, 196699, 0, 262144, 327771, 0, 327680, 393307, 0, 196608, 458843, 0, 196608, 524379, 0, 196608, 92, 0, 196608, 65628, 0, 196608, 131164, 0, 196608, 196700, 0, 196608, 327772, 0, 196608, 393308, 0, 196608, 458844, 0, 196608, 524380, 0, 196608, 262239, 0, 393216, 98, 0, 458752, 327737, 0, 393216, 524386, 0, 458752, 458850, 0, 458752, 393314, 0, 458752, 327778, 0, 458752, 196706, 0, 458752, 131170, 0, 458752, 65634, 0, 458752, 131105, 0, 65536, 131106, 0, 65536, 131107, 0, 65536, 262179, 0, 65536, 262178, 0, 65536, 262177, 0, 65536, 458785, 0, 65536, 458786, 0, 65536, 458787, 0, 65536, 327715, 0, 65536, 327714, 0, 65536, 327713, 0, 65536, 196641, 0, 65536, 196642, 0, 65536, 196643, 0, 65536, 65571, 0, 65536, 65570, 0, 65536, 65569, 0, 65536, 131123, 0, 458752, 524339, 0, 196608, 458803, 0, 196608, 458804, 0, 196608, 524340, 0, 196608, 65587, 0, 196608, 51, 0, 196608, 52, 0, 196608, 65588, 0, 196608)
+
+[connection signal="body_entered" from="Makecatinator6900" to="Makecatinator6900" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TreadmillUp" to="TreadmillUp" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillUp@173070" to="@TreadmillUp@173070" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TreadmillDown" to="TreadmillDown" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillDown@173071" to="@TreadmillDown@173071" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillUp@173081" to="@TreadmillUp@173081" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillDown@173082" to="@TreadmillDown@173082" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillUp@173088" to="@TreadmillUp@173088" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillDown@173089" to="@TreadmillDown@173089" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@Makecatinator6900@173101" to="@Makecatinator6900@173101" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillUp@173111" to="@TreadmillUp@173111" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillUp@173112" to="@TreadmillUp@173112" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillDown@173113" to="@TreadmillDown@173113" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillDown@173114" to="@TreadmillDown@173114" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@Makecatinator6900@173123" to="@Makecatinator6900@173123" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillUp@173158" to="@TreadmillUp@173158" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillUp@173159" to="@TreadmillUp@173159" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillUp@173160" to="@TreadmillUp@173160" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillUp@173161" to="@TreadmillUp@173161" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillUp@173162" to="@TreadmillUp@173162" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillDown@173163" to="@TreadmillDown@173163" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillDown@173164" to="@TreadmillDown@173164" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillDown@173165" to="@TreadmillDown@173165" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="@TreadmillDown@173166" to="@TreadmillDown@173166" method="_on_body_entered" flags=18]

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dy0sy3lby0jk7"]
+
+[ext_resource type="FontFile" uid="uid://xcrgh3r7do4" path="res://resources/default_theme/font.ttf" id="1_b7407"]
+
+[resource]
+default_font = ExtResource("1_b7407")
+Label/colors/font_color = Color(0.301961, 0.137255, 0.290196, 1)

@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkqo3a5cswrbx"]
+[gd_scene load_steps=3 format=3 uid="uid://bkqo3a5cswrbx"]
 
 [ext_resource type="PackedScene" uid="uid://t76pwel8ukw4" path="res://objects/obstacles/treadmill/treadmill.tscn" id="1_phr6y"]
+[ext_resource type="Texture2D" uid="uid://ct7nj24ufo5j2" path="res://objects/obstacles/treadmill/treadmill_down.png" id="2_ox2h6"]
 
 [node name="TreadmillDown" instance=ExtResource("1_phr6y")]
 push_force = Vector2(0, 8000)
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ox2h6")

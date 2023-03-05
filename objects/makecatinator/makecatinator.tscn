@@ -1,12 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://r81o4dd6q7kk"]
+[gd_scene load_steps=4 format=3 uid="uid://r81o4dd6q7kk"]
 
 [ext_resource type="Script" path="res://objects/makecatinator/makecatinator.gd" id="1_es2pm"]
-
-[sub_resource type="Gradient" id="Gradient_0uw7u"]
-colors = PackedColorArray(1, 0, 1, 1, 0.490196, 0, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_iug6v"]
-gradient = SubResource("Gradient_0uw7u")
+[ext_resource type="Texture2D" uid="uid://crbpcjaaq17pl" path="res://objects/makecatinator/makecatinator.png" id="2_06wmi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vll07"]
 size = Vector2(64, 64)
@@ -17,7 +12,7 @@ monitorable = false
 script = ExtResource("1_es2pm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_iug6v")
+texture = ExtResource("2_06wmi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vll07")

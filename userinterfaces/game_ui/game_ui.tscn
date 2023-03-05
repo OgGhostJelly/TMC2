@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b65bep1mo3pux"]
+[gd_scene load_steps=4 format=3 uid="uid://b65bep1mo3pux"]
 
+[ext_resource type="Theme" uid="uid://dy0sy3lby0jk7" path="res://resources/default_theme/default_theme.tres" id="1_ke06d"]
 [ext_resource type="PackedScene" uid="uid://c44yuhra7yqk4" path="res://userinterfaces/cat_counter/cat_counter.tscn" id="1_w8w2m"]
+[ext_resource type="Texture2D" uid="uid://h8c7lnru5cae" path="res://userinterfaces/background.png" id="2_5vfxo"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -10,6 +12,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("1_ke06d")
 
 [node name="ScoreCounter" parent="." instance=ExtResource("1_w8w2m")]
 layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 153.0
+offset_bottom = 48.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5vfxo")
+stretch_mode = 1

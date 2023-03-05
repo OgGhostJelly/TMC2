@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://jjw8ah1nfb2n"]
+
+[ext_resource type="Theme" uid="uid://dy0sy3lby0jk7" path="res://resources/default_theme/default_theme.tres" id="1_lsu2u"]
+[ext_resource type="Script" path="res://userinterfaces/win_ui/win_ui.gd" id="2_e5edu"]
+[ext_resource type="PackedScene" uid="uid://c44yuhra7yqk4" path="res://userinterfaces/cat_counter/cat_counter.tscn" id="3_88ugw"]
+
+[node name="WinUI" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_lsu2u")
+script = ExtResource("2_e5edu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.152941, 0.152941, 0.152941, 0.576471)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -9.5
+offset_right = 64.0
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "YOU WIN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreCounter" parent="." instance=ExtResource("3_88ugw")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -88.0
+offset_right = 64.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30

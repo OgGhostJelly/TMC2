@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwn1vrysic03y"]
+[gd_scene load_steps=4 format=3 uid="uid://cwn1vrysic03y"]
 
 [ext_resource type="Script" path="res://userinterfaces/death_ui/death_ui.gd" id="1_0gk4r"]
+[ext_resource type="Theme" uid="uid://dy0sy3lby0jk7" path="res://resources/default_theme/default_theme.tres" id="1_3nnk1"]
 [ext_resource type="PackedScene" uid="uid://bwa4u7r2qb6yx" path="res://userinterfaces/game_start_button/game_start_button.tscn" id="3_jti7x"]
 
 [node name="DeathUI" type="Control"]
@@ -12,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("1_3nnk1")
 script = ExtResource("1_0gk4r")
 
 [node name="ColorRect" type="ColorRect" parent="."]

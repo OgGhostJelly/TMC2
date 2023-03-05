@@ -1,24 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bq8mxsmhe4dow"]
+[gd_scene load_steps=7 format=3 uid="uid://bq8mxsmhe4dow"]
 
+[ext_resource type="Texture2D" uid="uid://c02vb58i1tgap" path="res://objects/obstacles/gate/pivot.png" id="1_714ju"]
 [ext_resource type="Script" path="res://components/push_draggable.gd" id="1_r6t44"]
+[ext_resource type="Texture2D" uid="uid://ct2uki30tg6at" path="res://objects/obstacles/gate/handle.png" id="2_hwpth"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djt45"]
 size = Vector2(32, 32)
-
-[sub_resource type="Gradient" id="Gradient_thceq"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_bbqwl"]
-gradient = SubResource("Gradient_thceq")
-width = 32
-height = 32
-
-[sub_resource type="Gradient" id="Gradient_u4fss"]
-colors = PackedColorArray(0.941176, 1, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_jmpso"]
-gradient = SubResource("Gradient_u4fss")
-width = 32
-height = 320
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ki4m3"]
 size = Vector2(32, 320)
@@ -36,7 +23,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_djt45")
 
 [node name="Sprite2D" type="Sprite2D" parent="PivotPoint"]
-texture = SubResource("GradientTexture2D_bbqwl")
+texture = ExtResource("1_714ju")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="PivotPoint"]
 node_a = NodePath("..")
@@ -50,7 +37,7 @@ collision_mask = 4
 gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Handle"]
-texture = SubResource("GradientTexture2D_jmpso")
+texture = ExtResource("2_hwpth")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Handle"]
 shape = SubResource("RectangleShape2D_ki4m3")
