@@ -14,6 +14,13 @@ func _physics_process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if not event.is_action("move"): return
+	
+	if event.is_pressed():
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_viewport().warp_mouse(selected_draggables[0].get_global_transform_with_canvas().origin)
+	
 	selected_draggables = hovered_draggables if event.is_pressed() else []
 
 
