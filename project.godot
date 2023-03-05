@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 CatManager="*res://autoloads/cat_manager.gd"
-DataManager="*res://autoloads/data_manager.gd"
 DragManager="*res://autoloads/drag_manager.gd"
+GameManager="*res://autoloads/game_manager.gd"
 
 [display]
 

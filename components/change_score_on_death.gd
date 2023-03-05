@@ -7,4 +7,4 @@ class_name ChangeScoreOnDeathComponent
 
 
 func _ready() -> void:
-	health_component.died.connect(func(): DataManager.score += change)
+	health_component.died.connect(func(): GameManager.score += change)

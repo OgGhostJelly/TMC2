@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwn1vrysic03y"]
+
+[ext_resource type="Script" path="res://userinterfaces/death_ui/death_ui.gd" id="1_0gk4r"]
+[ext_resource type="PackedScene" path="res://userinterfaces/final_score_counter/final_score_counter.tscn" id="2_4kqlg"]
+[ext_resource type="PackedScene" uid="uid://bwa4u7r2qb6yx" path="res://userinterfaces/game_start_button/game_start_button.tscn" id="3_jti7x"]
+
+[node name="DeathUI" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_0gk4r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.152941, 0.152941, 0.152941, 0.576471)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = -20.0
+offset_right = 55.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FinalScoreCounter" parent="VBoxContainer" instance=ExtResource("2_4kqlg")]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="GameStartButton" parent="VBoxContainer" instance=ExtResource("3_jti7x")]
+layout_mode = 2

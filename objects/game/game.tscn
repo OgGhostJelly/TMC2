@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8ulfide4cn3j"]
+[gd_scene load_steps=15 format=3 uid="uid://b8ulfide4cn3j"]
 
 [ext_resource type="PackedScene" uid="uid://b65bep1mo3pux" path="res://userinterfaces/game_ui/game_ui.tscn" id="1_72x35"]
 [ext_resource type="PackedScene" uid="uid://cdbe6xqbo6g02" path="res://objects/cat/cat.tscn" id="1_d6la8"]
+[ext_resource type="PackedScene" uid="uid://cy8fpfm5trtwl" path="res://objects/camera/camera.tscn" id="1_sf5fr"]
+[ext_resource type="PackedScene" uid="uid://cwn1vrysic03y" path="res://userinterfaces/death_ui/death_ui.tscn" id="2_q4bge"]
 [ext_resource type="PackedScene" uid="uid://dk5rit54p6xvu" path="res://objects/obstacles/spike/spike.tscn" id="3_ikh4w"]
 [ext_resource type="PackedScene" uid="uid://c3bqc4t18b1i5" path="res://objects/obstacles/fire/fire.tscn" id="4_42i0g"]
 [ext_resource type="PackedScene" uid="uid://dl3r44n5sqrh5" path="res://objects/obstacles/hammer/hammer.tscn" id="5_0t2c5"]
@@ -9,21 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bkqo3a5cswrbx" path="res://objects/obstacles/treadmill/treadmill_down.tscn" id="7_rgosc"]
 [ext_resource type="PackedScene" uid="uid://r81o4dd6q7kk" path="res://objects/makecatinator/makecatinator.tscn" id="8_au7ud"]
 [ext_resource type="PackedScene" uid="uid://bq8mxsmhe4dow" path="res://objects/obstacles/gate/gate.tscn" id="8_hpigl"]
-
-[sub_resource type="GDScript" id="GDScript_cxgxh"]
-script/source = "extends Camera2D
-
-
-@export var speed: float = 40.0
-
-
-func _physics_process(delta: float) -> void:
-	global_position.x += speed * delta
-
-
-func _on_timer_timeout() -> void:
-	DataManager.score += 1
-"
+[ext_resource type="Script" path="res://components/gain_score_timer.gd" id="11_1p5oi"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_1m1bm"]
 resource_name = "Obstacles"
@@ -41,21 +29,18 @@ sources/0 = SubResource("TileSetScenesCollectionSource_1m1bm")
 
 [node name="Game" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-script = SubResource("GDScript_cxgxh")
-
-[node name="Timer" type="Timer" parent="Camera2D"]
-autostart = true
+[node name="Camera" parent="." instance=ExtResource("1_sf5fr")]
 
 [node name="Forelayer" type="CanvasLayer" parent="."]
 
 [node name="GameUI" parent="Forelayer" instance=ExtResource("1_72x35")]
 
+[node name="DeathUI" parent="Forelayer" instance=ExtResource("2_q4bge")]
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ob7o0")
 format = 2
-layer_0/tile_data = PackedInt32Array(131093, 0, 196608, 393237, 0, 196608, 65558, 0, 196608, 458774, 0, 196608, 65556, 0, 196608, 458772, 0, 196608, 21, 0, 196608, 65557, 0, 196608, 458773, 0, 196608, 524309, 0, 196608, 262166, 0, 131072, 131098, 0, 262144, 196634, 0, 262144, 327706, 0, 327680, 393242, 0, 327680, 27, 0, 65536, 65563, 0, 65536, 458779, 0, 65536, 524315, 0, 65536, 28, 0, 65536, 65564, 0, 65536, 458780, 0, 65536, 524316, 0, 65536, 262174, 0, 393216, 36, 0, 196608, 65572, 0, 196608, 131108, 0, 458752, 458788, 0, 196608, 524324, 0, 196608)
+layer_0/tile_data = PackedInt32Array(131093, 0, 196608, 393237, 0, 196608, 65558, 0, 196608, 458774, 0, 196608, 65556, 0, 196608, 458772, 0, 196608, 21, 0, 196608, 65557, 0, 196608, 458773, 0, 196608, 524309, 0, 196608, 262166, 0, 131072, 131098, 0, 262144, 196634, 0, 262144, 327706, 0, 327680, 393242, 0, 327680, 27, 0, 65536, 65563, 0, 65536, 458779, 0, 65536, 524315, 0, 65536, 28, 0, 65536, 65564, 0, 65536, 458780, 0, 65536, 524316, 0, 65536, 34, 0, 196608, 65570, 0, 196608, 131106, 0, 458752, 458786, 0, 196608, 524322, 0, 196608, 262174, 0, 393216, 262181, 0, 393216)
 
 [node name="Cat" parent="." instance=ExtResource("1_d6la8")]
 position = Vector2(614, 283)
@@ -70,9 +55,6 @@ offset_right = 697.0
 offset_bottom = 186.0
 text = "Click and drag the CATS"
 
-[connection signal="timeout" from="Camera2D/Timer" to="Camera2D" method="_on_timer_timeout"]
-[connection signal="body_entered" from="TileMap/TreadmillUp" to="TileMap/TreadmillUp" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillUp@117332" to="TileMap/@TreadmillUp@117332" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/TreadmillDown" to="TileMap/TreadmillDown" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillDown@117333" to="TileMap/@TreadmillDown@117333" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/Makecatinator6900" to="TileMap/Makecatinator6900" method="_on_body_entered" flags=18]
+[node name="GainScoreTimerComponent" type="Timer" parent="."]
+autostart = true
+script = ExtResource("11_1p5oi")

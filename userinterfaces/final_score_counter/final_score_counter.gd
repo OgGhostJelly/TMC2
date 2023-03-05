@@ -5,9 +5,8 @@ extends Label
 
 
 func _ready() -> void:
-	GameManager.score_changed.connect(update_text)
-	update_text()
+	GameManager.game_over.connect(update_text)
 
 
 func update_text() -> void:
-	text = default_text % GameManager.score
+	text = default_text % GameManager.final_score
