@@ -1,4 +1,4 @@
 Remove randomised speed [/]
-Dynamic Camera [-]
+Dynamic Camera [/]
 Stop Cats dying on the right side of the screen [-]
 Make PushDraggable based on mouse movement and not mouse position

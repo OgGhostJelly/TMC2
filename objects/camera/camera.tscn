@@ -3,5 +3,4 @@
 [ext_resource type="Script" path="res://objects/camera/camera.gd" id="1_ftg3l"]
 
 [node name="Camera" type="Camera2D"]
-anchor_mode = 0
 script = ExtResource("1_ftg3l")
