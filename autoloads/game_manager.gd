@@ -5,10 +5,6 @@ signal game_start
 signal score_changed
 
 
-@export var score: int = 0:
-	set(v): score = v; score_changed.emit()
-var final_score: int = 0
-
 var last_nodes_in_group_cats: Array[Node]
 
 
@@ -19,8 +15,6 @@ func _ready() -> void:
 
 func _on_game_over() -> void:
 	Engine.time_scale = 0.1
-	final_score = score
-	score = 0
 
 
 func _on_game_start() -> void:

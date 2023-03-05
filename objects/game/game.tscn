@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b8ulfide4cn3j"]
+[gd_scene load_steps=14 format=3 uid="uid://b8ulfide4cn3j"]
 
 [ext_resource type="PackedScene" uid="uid://b65bep1mo3pux" path="res://userinterfaces/game_ui/game_ui.tscn" id="1_72x35"]
 [ext_resource type="PackedScene" uid="uid://cdbe6xqbo6g02" path="res://objects/cat/cat.tscn" id="1_d6la8"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://bkqo3a5cswrbx" path="res://objects/obstacles/treadmill/treadmill_down.tscn" id="7_rgosc"]
 [ext_resource type="PackedScene" uid="uid://r81o4dd6q7kk" path="res://objects/makecatinator/makecatinator.tscn" id="8_au7ud"]
 [ext_resource type="PackedScene" uid="uid://bq8mxsmhe4dow" path="res://objects/obstacles/gate/gate.tscn" id="8_hpigl"]
-[ext_resource type="Script" path="res://components/gain_score_timer.gd" id="11_1p5oi"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_1m1bm"]
 resource_name = "Obstacles"
@@ -40,7 +39,7 @@ sources/0 = SubResource("TileSetScenesCollectionSource_1m1bm")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ob7o0")
 format = 2
-layer_0/tile_data = PackedInt32Array(131093, 0, 196608, 393237, 0, 196608, 65558, 0, 196608, 458774, 0, 196608, 65556, 0, 196608, 458772, 0, 196608, 21, 0, 196608, 65557, 0, 196608, 458773, 0, 196608, 524309, 0, 196608, 262166, 0, 131072, 131098, 0, 262144, 196634, 0, 262144, 327706, 0, 327680, 393242, 0, 327680, 27, 0, 65536, 65563, 0, 65536, 458779, 0, 65536, 524315, 0, 65536, 28, 0, 65536, 65564, 0, 65536, 458780, 0, 65536, 524316, 0, 65536, 34, 0, 196608, 65570, 0, 196608, 131106, 0, 458752, 458786, 0, 196608, 524322, 0, 196608, 262174, 0, 393216, 262181, 0, 393216)
+layer_0/tile_data = PackedInt32Array(131093, 0, 196608, 393237, 0, 196608, 65558, 0, 196608, 458774, 0, 196608, 65556, 0, 196608, 458772, 0, 196608, 21, 0, 196608, 65557, 0, 196608, 458773, 0, 196608, 524309, 0, 196608, 262166, 0, 131072, 131098, 0, 262144, 196634, 0, 262144, 327706, 0, 327680, 393242, 0, 327680, 27, 0, 65536, 65563, 0, 65536, 458779, 0, 65536, 524315, 0, 65536, 28, 0, 65536, 65564, 0, 65536, 458780, 0, 65536, 524316, 0, 65536, 34, 0, 196608, 65570, 0, 196608, 131106, 0, 458752, 458786, 0, 196608, 524322, 0, 196608, 262174, 0, 393216, 393254, 0, 131072, 131110, 0, 131072, 65578, 0, 196608, 42, 0, 196608, 43, 0, 196608, 458790, 0, 65536, 327718, 0, 65536, 196646, 0, 65536, 262182, 0, 65536, 65574, 0, 65536, 38, 0, 65536, 131111, 0, 65536, 131109, 0, 65536, 393255, 0, 65536, 393253, 0, 65536, 458789, 0, 65536, 458791, 0, 65536, 327719, 0, 65536, 327717, 0, 65536, 196645, 0, 65536, 196647, 0, 65536, 65575, 0, 65536, 65573, 0, 65536, 131115, 0, 458752, 524330, 0, 196608, 458795, 0, 196608, 524331, 0, 196608, 458794, 0, 196608, 65579, 0, 196608, 131114, 0, 262144, 196650, 0, 262144, 393258, 0, 327680, 327722, 0, 327680, 393263, 0, 327680, 131119, 0, 262144, 131120, 0, 196608, 393264, 0, 196608, 458799, 0, 196608, 524335, 0, 196608, 524336, 0, 196608, 458800, 0, 196608, 524337, 0, 196608, 458801, 0, 196608, 65585, 0, 196608, 65584, 0, 196608, 65583, 0, 196608, 47, 0, 196608, 48, 0, 196608, 49, 0, 196608, 196656, 0, 262144, 327728, 0, 327680, 393265, 0, 196608, 327729, 0, 196608, 131121, 0, 196608, 196657, 0, 196608, 262196, 0, 393216, 55, 0, 458752, 65591, 0, 458752, 131127, 0, 458752, 196663, 0, 458752, 327735, 0, 458752, 393271, 0, 458752, 458807, 0, 458752, 524343, 0, 458752)
 
 [node name="Cat" parent="." instance=ExtResource("1_d6la8")]
 position = Vector2(614, 283)
@@ -55,6 +54,17 @@ offset_right = 697.0
 offset_bottom = 186.0
 text = "Click and drag the CATS"
 
-[node name="GainScoreTimerComponent" type="Timer" parent="."]
-autostart = true
-script = ExtResource("11_1p5oi")
+[connection signal="body_entered" from="TileMap/TreadmillUp" to="TileMap/TreadmillUp" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TreadmillDown" to="TileMap/TreadmillDown" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/Makecatinator6900" to="TileMap/Makecatinator6900" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@50787" to="TileMap/@TreadmillUp@50787" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@50788" to="TileMap/@TreadmillUp@50788" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@50789" to="TileMap/@TreadmillDown@50789" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@50790" to="TileMap/@TreadmillDown@50790" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@50800" to="TileMap/@TreadmillUp@50800" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@50801" to="TileMap/@TreadmillDown@50801" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@50815" to="TileMap/@TreadmillUp@50815" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@50816" to="TileMap/@TreadmillUp@50816" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@50817" to="TileMap/@TreadmillDown@50817" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@50818" to="TileMap/@TreadmillDown@50818" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Makecatinator6900@50827" to="TileMap/@Makecatinator6900@50827" method="_on_body_entered" flags=18]

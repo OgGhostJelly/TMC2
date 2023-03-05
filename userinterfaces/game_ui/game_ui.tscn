@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b65bep1mo3pux"]
 
-[ext_resource type="PackedScene" uid="uid://d08xdr4muwsml" path="res://userinterfaces/score_counter/score_counter.tscn" id="1_o74mp"]
+[ext_resource type="PackedScene" uid="uid://c44yuhra7yqk4" path="res://userinterfaces/cat_counter/cat_counter.tscn" id="1_w8w2m"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -11,5 +11,5 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ScoreCounter" parent="." instance=ExtResource("1_o74mp")]
+[node name="ScoreCounter" parent="." instance=ExtResource("1_w8w2m")]
 layout_mode = 0

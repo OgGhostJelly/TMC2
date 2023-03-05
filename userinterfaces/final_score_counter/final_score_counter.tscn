@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3]
-
-[ext_resource type="Script" path="res://userinterfaces/final_score_counter/final_score_counter.gd" id="1_jo07m"]
-
-[node name="FinalScoreCounter" type="Label"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Score: %s"
-script = ExtResource("1_jo07m")

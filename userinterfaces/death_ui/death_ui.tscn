@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwn1vrysic03y"]
+[gd_scene load_steps=3 format=3 uid="uid://cwn1vrysic03y"]
 
 [ext_resource type="Script" path="res://userinterfaces/death_ui/death_ui.gd" id="1_0gk4r"]
-[ext_resource type="PackedScene" path="res://userinterfaces/final_score_counter/final_score_counter.tscn" id="2_4kqlg"]
 [ext_resource type="PackedScene" uid="uid://bwa4u7r2qb6yx" path="res://userinterfaces/game_start_button/game_start_button.tscn" id="3_jti7x"]
 
 [node name="DeathUI" type="Control"]
@@ -39,9 +38,6 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FinalScoreCounter" parent="VBoxContainer" instance=ExtResource("2_4kqlg")]
-layout_mode = 2
-horizontal_alignment = 1
-
 [node name="GameStartButton" parent="VBoxContainer" instance=ExtResource("3_jti7x")]
 layout_mode = 2
+text = "Retry"

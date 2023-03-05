@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d08xdr4muwsml"]
-
-[ext_resource type="Script" path="res://userinterfaces/score_counter/score_counter.gd" id="1_i01gh"]
-
-[node name="ScoreCounter" type="Label"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Score: %s"
-script = ExtResource("1_i01gh")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c44yuhra7yqk4"]
+
+[ext_resource type="Script" path="res://userinterfaces/cat_counter/cat_counter.gd" id="1_bywma"]
+
+[node name="ScoreCounter" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Cats: %s"
+script = ExtResource("1_bywma")
