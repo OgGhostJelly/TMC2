@@ -15,16 +15,6 @@ func _physics_process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if not event.is_action("move"): return
 	
-	if event.is_pressed():
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	else:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		if selected_draggables.is_empty(): return
-		var positions: Array = selected_draggables.filter(func(x): return x and is_instance_valid(x))
-		positions = selected_draggables.map(func(x): return x.get_global_transform_with_canvas().origin)
-		var averaged_vector: Vector2 = positions.reduce(func(accum, vec): return ( vec + accum ) / 2, positions.pop_front())
-		get_viewport().warp_mouse(averaged_vector)
-	
 	selected_draggables = hovered_draggables if event.is_pressed() else []
 
 
