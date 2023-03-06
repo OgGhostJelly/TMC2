@@ -5,4 +5,5 @@ Make PushDraggable based on mouse movement and not mouse position [/]
 Emphasize cats death more [-]
 Add cat pointer [-]
 Make warp_mouse warp to an average position [/]
+Kill blocks easier to distinguish [-]
 mouse movement not mouse pos movement is worse if there are more than 2 cats

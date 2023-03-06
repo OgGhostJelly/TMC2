@@ -1,7 +1,7 @@
 extends Area2D
 
 
-@export var damage: float = 0.5
+@export var damage: float = 1.0
 
 
 func _ready() -> void:

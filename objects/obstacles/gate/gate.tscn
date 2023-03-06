@@ -47,7 +47,6 @@ collision_layer = 2147483648
 collision_mask = 0
 monitoring = false
 script = ExtResource("1_r6t44")
-speeds = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Handle/PushDraggable"]
 shape = SubResource("RectangleShape2D_wuwii")

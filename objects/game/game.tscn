@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8ulfide4cn3j"]
+[gd_scene load_steps=8 format=3 uid="uid://b8ulfide4cn3j"]
 
 [ext_resource type="PackedScene" uid="uid://b65bep1mo3pux" path="res://userinterfaces/game_ui/game_ui.tscn" id="1_72x35"]
 [ext_resource type="PackedScene" uid="uid://cdbe6xqbo6g02" path="res://objects/cat/cat.tscn" id="1_d6la8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwn1vrysic03y" path="res://userinterfaces/death_ui/death_ui.tscn" id="2_q4bge"]
 [ext_resource type="PackedScene" uid="uid://jjw8ah1nfb2n" path="res://userinterfaces/win_ui/win_ui.tscn" id="4_f7ud7"]
 [ext_resource type="PackedScene" uid="uid://dug0otcbvbjp3" path="res://objects/tile_map/tile_map.tscn" id="5_qopfw"]
+[ext_resource type="Theme" uid="uid://dy0sy3lby0jk7" path="res://resources/default_theme/default_theme.tres" id="7_htb0c"]
 
 [node name="Game" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
@@ -23,7 +24,7 @@ position_smoothing_enabled = true
 [node name="WinUI" parent="Forelayer" instance=ExtResource("4_f7ud7")]
 
 [node name="TileMap" parent="." instance=ExtResource("5_qopfw")]
-layer_0/tile_data = PackedInt32Array(393237, 0, 196608, 458773, 0, 196608, 458772, 0, 196608, 524309, 0, 196608, 458774, 0, 196608, 196632, 0, 196608, 131096, 0, 196608, 65560, 0, 196608, 131095, 0, 196608, 131097, 0, 196608, 393243, 0, 196608, 393244, 0, 196608, 327708, 0, 196608, 458780, 0, 196608, 393245, 0, 196608, 35, 0, 65536, 393251, 0, 65536, 524323, 0, 65536, 33, 0, 65536, 393249, 0, 65536, 524321, 0, 65536, 34, 0, 65536, 393250, 0, 65536, 524322, 0, 65536, 393257, 0, 131072, 131113, 0, 131072, 47, 0, 262144, 65583, 0, 262144, 131119, 0, 262144, 196655, 0, 262144, 262191, 0, 262144, 327727, 0, 327680, 393263, 0, 327680, 458799, 0, 327680, 524335, 0, 327680, 65601, 0, 196608, 458817, 0, 196608, 131141, 0, 262144, 196677, 0, 262144, 327749, 0, 327680, 393285, 0, 327680, 65606, 0, 65536, 458822, 0, 65536, 65616, 0, 65536, 131152, 0, 65536, 196688, 0, 65536, 327760, 0, 65536, 393296, 0, 65536, 458832, 0, 65536, 86, 0, 196608, 65622, 0, 196608, 131158, 0, 458752, 458838, 0, 196608, 524374, 0, 196608, 65599, 0, 196608, 458815, 0, 196608, 64, 0, 196608, 65600, 0, 196608, 131136, 0, 196608, 393280, 0, 196608, 458816, 0, 196608, 524352, 0, 196608, 262209, 0, 131072, 70, 0, 65536, 524358, 0, 65536, 71, 0, 65536, 65607, 0, 65536, 458823, 0, 65536, 524359, 0, 65536, 262217, 0, 393216, 77, 0, 196608, 65613, 0, 196608, 131149, 0, 458752, 458829, 0, 196608, 524365, 0, 196608, 81, 0, 65536, 65617, 0, 65536, 131153, 0, 131072, 196689, 0, 65536, 262225, 0, 65536, 327761, 0, 65536, 393297, 0, 131072, 458833, 0, 65536, 65618, 0, 65536, 131154, 0, 65536, 196690, 0, 65536, 327762, 0, 65536, 393298, 0, 65536, 458834, 0, 65536, 85, 0, 196608, 65621, 0, 196608, 131157, 0, 262144, 196693, 0, 262144, 327765, 0, 327680, 393301, 0, 327680, 458837, 0, 196608, 524373, 0, 196608, 90, 0, 196608, 65626, 0, 196608, 131162, 0, 262144, 393306, 0, 327680, 458842, 0, 196608, 524378, 0, 196608, 91, 0, 196608, 65627, 0, 196608, 131163, 0, 196608, 196699, 0, 262144, 327771, 0, 327680, 393307, 0, 196608, 458843, 0, 196608, 524379, 0, 196608, 92, 0, 196608, 65628, 0, 196608, 131164, 0, 196608, 196700, 0, 196608, 327772, 0, 196608, 393308, 0, 196608, 458844, 0, 196608, 524380, 0, 196608, 262239, 0, 393216, 98, 0, 458752, 327737, 0, 393216, 524386, 0, 458752, 458850, 0, 458752, 393314, 0, 458752, 327778, 0, 458752, 196706, 0, 458752, 131170, 0, 458752, 65634, 0, 458752, 131105, 0, 65536, 131106, 0, 65536, 131107, 0, 65536, 262179, 0, 65536, 262178, 0, 65536, 262177, 0, 65536, 458785, 0, 65536, 458786, 0, 65536, 458787, 0, 65536, 327715, 0, 65536, 327714, 0, 65536, 327713, 0, 65536, 196641, 0, 65536, 196642, 0, 65536, 196643, 0, 65536, 65571, 0, 65536, 65570, 0, 65536, 65569, 0, 65536, 131123, 0, 458752, 524339, 0, 196608, 458803, 0, 196608, 458804, 0, 196608, 524340, 0, 196608, 65587, 0, 196608, 51, 0, 196608, 52, 0, 196608, 65588, 0, 196608, 262247, 0, 524288)
+layer_0/tile_data = PackedInt32Array(393237, 0, 196608, 458773, 0, 196608, 458772, 0, 196608, 524309, 0, 196608, 458774, 0, 196608, 196632, 0, 196608, 131096, 0, 196608, 65560, 0, 196608, 131095, 0, 196608, 131097, 0, 196608, 393243, 0, 196608, 393244, 0, 196608, 327708, 0, 196608, 458780, 0, 196608, 393245, 0, 196608, 35, 0, 65536, 393251, 0, 65536, 524323, 0, 65536, 33, 0, 65536, 393249, 0, 65536, 524321, 0, 65536, 34, 0, 65536, 393250, 0, 65536, 524322, 0, 65536, 393257, 0, 131072, 131113, 0, 131072, 131105, 0, 65536, 131106, 0, 65536, 131107, 0, 65536, 262179, 0, 65536, 262178, 0, 65536, 262177, 0, 65536, 458785, 0, 65536, 458786, 0, 65536, 458787, 0, 65536, 327715, 0, 65536, 327714, 0, 65536, 327713, 0, 65536, 196641, 0, 65536, 196642, 0, 65536, 196643, 0, 65536, 65571, 0, 65536, 65570, 0, 65536, 65569, 0, 65536, 65601, 0, 196608, 458817, 0, 196608, 65618, 0, 65536, 131154, 0, 65536, 196690, 0, 65536, 327762, 0, 65536, 393298, 0, 65536, 458834, 0, 65536, 92, 0, 196608, 65628, 0, 196608, 131164, 0, 262144, 393308, 0, 327680, 458844, 0, 196608, 524380, 0, 196608, 49, 0, 262144, 65585, 0, 262144, 131121, 0, 262144, 196657, 0, 262144, 262193, 0, 262144, 327729, 0, 327680, 393265, 0, 327680, 458801, 0, 327680, 524337, 0, 327680, 53, 0, 196608, 65589, 0, 196608, 131125, 0, 458752, 458805, 0, 196608, 524341, 0, 196608, 327739, 0, 393216, 66, 0, 196608, 65602, 0, 196608, 131138, 0, 196608, 393282, 0, 196608, 458818, 0, 196608, 524354, 0, 196608, 65603, 0, 196608, 262211, 0, 131072, 458819, 0, 196608, 131143, 0, 262144, 196679, 0, 262144, 327751, 0, 327680, 393287, 0, 327680, 72, 0, 65536, 65608, 0, 65536, 458824, 0, 65536, 524360, 0, 65536, 73, 0, 65536, 65609, 0, 65536, 458825, 0, 65536, 524361, 0, 65536, 262219, 0, 393216, 79, 0, 196608, 65615, 0, 196608, 131151, 0, 458752, 458831, 0, 196608, 524367, 0, 196608, 83, 0, 65536, 65619, 0, 65536, 131155, 0, 131072, 196691, 0, 65536, 262227, 0, 65536, 327763, 0, 65536, 393299, 0, 131072, 458835, 0, 65536, 65620, 0, 65536, 131156, 0, 65536, 196692, 0, 65536, 327764, 0, 65536, 393300, 0, 65536, 458836, 0, 65536, 87, 0, 196608, 65623, 0, 196608, 131159, 0, 262144, 196695, 0, 262144, 327767, 0, 327680, 393303, 0, 327680, 458839, 0, 196608, 524375, 0, 196608, 88, 0, 196608, 65624, 0, 196608, 131160, 0, 458752, 458840, 0, 196608, 524376, 0, 196608, 93, 0, 196608, 65629, 0, 196608, 131165, 0, 196608, 196701, 0, 262144, 327773, 0, 327680, 393309, 0, 196608, 458845, 0, 196608, 524381, 0, 196608, 94, 0, 196608, 65630, 0, 196608, 131166, 0, 196608, 196702, 0, 196608, 327774, 0, 196608, 393310, 0, 196608, 458846, 0, 196608, 524382, 0, 196608, 262241, 0, 393216, 100, 0, 458752, 65636, 0, 458752, 131172, 0, 458752, 196708, 0, 458752, 327780, 0, 458752, 393316, 0, 458752, 458852, 0, 458752, 524388, 0, 458752, 262249, 0, 524288)
 
 [node name="Cat" parent="." instance=ExtResource("1_d6la8")]
 position = Vector2(614, 283)
@@ -31,28 +32,22 @@ position = Vector2(614, 283)
 [node name="Cat2" parent="." instance=ExtResource("1_d6la8")]
 position = Vector2(569, 270)
 
-[connection signal="body_entered" from="TileMap/Win" to="TileMap/Win" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/Makecatinator6900" to="TileMap/Makecatinator6900" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/TreadmillUp" to="TileMap/TreadmillUp" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillUp@17279" to="TileMap/@TreadmillUp@17279" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/TreadmillDown" to="TileMap/TreadmillDown" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillDown@17280" to="TileMap/@TreadmillDown@17280" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillUp@17290" to="TileMap/@TreadmillUp@17290" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillDown@17291" to="TileMap/@TreadmillDown@17291" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillUp@17297" to="TileMap/@TreadmillUp@17297" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillDown@17298" to="TileMap/@TreadmillDown@17298" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@Makecatinator6900@17310" to="TileMap/@Makecatinator6900@17310" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillUp@17320" to="TileMap/@TreadmillUp@17320" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillUp@17321" to="TileMap/@TreadmillUp@17321" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillDown@17322" to="TileMap/@TreadmillDown@17322" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillDown@17323" to="TileMap/@TreadmillDown@17323" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@Makecatinator6900@17332" to="TileMap/@Makecatinator6900@17332" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillUp@17367" to="TileMap/@TreadmillUp@17367" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillUp@17368" to="TileMap/@TreadmillUp@17368" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillUp@17369" to="TileMap/@TreadmillUp@17369" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillUp@17370" to="TileMap/@TreadmillUp@17370" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillUp@17371" to="TileMap/@TreadmillUp@17371" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillDown@17372" to="TileMap/@TreadmillDown@17372" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillDown@17373" to="TileMap/@TreadmillDown@17373" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillDown@17374" to="TileMap/@TreadmillDown@17374" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@TreadmillDown@17375" to="TileMap/@TreadmillDown@17375" method="_on_body_entered" flags=18]
+[node name="Label" type="Label" parent="."]
+offset_left = 3190.0
+offset_top = 266.0
+offset_right = 3398.0
+offset_bottom = 304.0
+theme = ExtResource("7_htb0c")
+text = "Open the
+door"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 3708.0
+offset_top = 264.0
+offset_right = 3916.0
+offset_bottom = 302.0
+theme = ExtResource("7_htb0c")
+text = "The plus is
+good"
+horizontal_alignment = 1
