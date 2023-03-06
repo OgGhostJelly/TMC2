@@ -9,7 +9,7 @@ var selected_draggables: Array = []: set = _on_selected_draggables_changed
 
 func _physics_process(_delta: float) -> void:
 	grab_amount = round(get_tree().get_nodes_in_group('cats').size() / 2.0)
-	for v in selected_draggables: if is_instance_valid(v) and v.has_method('_drag'): v._drag()
+	for v in selected_draggables: if is_instance_valid(v) and v.has_method('__drag'): v.__drag()
 
 
 func _input(event: InputEvent) -> void:

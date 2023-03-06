@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8ulfide4cn3j"]
+[gd_scene load_steps=9 format=3 uid="uid://c25y2p6uqu53u"]
 
 [ext_resource type="PackedScene" uid="uid://b65bep1mo3pux" path="res://userinterfaces/game_ui/game_ui.tscn" id="1_72x35"]
 [ext_resource type="PackedScene" uid="uid://cdbe6xqbo6g02" path="res://objects/cat/cat.tscn" id="1_d6la8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwn1vrysic03y" path="res://userinterfaces/death_ui/death_ui.tscn" id="2_q4bge"]
 [ext_resource type="PackedScene" uid="uid://jjw8ah1nfb2n" path="res://userinterfaces/win_ui/win_ui.tscn" id="4_f7ud7"]
 [ext_resource type="PackedScene" uid="uid://dug0otcbvbjp3" path="res://objects/tile_map/tile_map.tscn" id="5_qopfw"]
+[ext_resource type="PackedScene" uid="uid://bok3kgd3qajha" path="res://components/drag_icon/drag_icon.tscn" id="7_0bwi7"]
 [ext_resource type="Theme" uid="uid://dy0sy3lby0jk7" path="res://resources/default_theme/default_theme.tres" id="7_htb0c"]
 
 [node name="Game" type="Node2D"]
@@ -32,16 +33,6 @@ position = Vector2(614, 283)
 [node name="Cat2" parent="." instance=ExtResource("1_d6la8")]
 position = Vector2(569, 270)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 3190.0
-offset_top = 266.0
-offset_right = 3398.0
-offset_bottom = 304.0
-theme = ExtResource("7_htb0c")
-text = "Open the
-door"
-horizontal_alignment = 1
-
 [node name="Label2" type="Label" parent="."]
 offset_left = 3708.0
 offset_top = 264.0
@@ -51,3 +42,39 @@ theme = ExtResource("7_htb0c")
 text = "The plus is
 good"
 horizontal_alignment = 1
+
+[node name="DragIcon" parent="." instance=ExtResource("7_0bwi7")]
+z_index = 1
+position = Vector2(591, 267)
+
+[node name="DragIcon2" parent="." instance=ExtResource("7_0bwi7")]
+z_index = 1
+position = Vector2(3419, 299)
+
+[connection signal="body_entered" from="TileMap/Makecatinator6900" to="TileMap/Makecatinator6900" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/Win" to="TileMap/Win" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TreadmillUp" to="TileMap/TreadmillUp" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@98488" to="TileMap/@TreadmillUp@98488" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@98489" to="TileMap/@TreadmillUp@98489" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@98490" to="TileMap/@TreadmillUp@98490" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@98491" to="TileMap/@TreadmillUp@98491" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TreadmillDown" to="TileMap/TreadmillDown" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@98492" to="TileMap/@TreadmillDown@98492" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@98493" to="TileMap/@TreadmillDown@98493" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@98494" to="TileMap/@TreadmillDown@98494" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Makecatinator6900@98499" to="TileMap/@Makecatinator6900@98499" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@98520" to="TileMap/@TreadmillUp@98520" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@98521" to="TileMap/@TreadmillUp@98521" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@98522" to="TileMap/@TreadmillDown@98522" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@98523" to="TileMap/@TreadmillDown@98523" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@98533" to="TileMap/@TreadmillUp@98533" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@98534" to="TileMap/@TreadmillDown@98534" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@98540" to="TileMap/@TreadmillUp@98540" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@98541" to="TileMap/@TreadmillDown@98541" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@98564" to="TileMap/@TreadmillUp@98564" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillUp@98565" to="TileMap/@TreadmillUp@98565" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@98566" to="TileMap/@TreadmillDown@98566" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@TreadmillDown@98567" to="TileMap/@TreadmillDown@98567" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Makecatinator6900@98576" to="TileMap/@Makecatinator6900@98576" method="_on_body_entered" flags=18]
+
+[editable path="Cat"]
